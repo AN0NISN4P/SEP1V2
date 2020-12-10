@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane prefHeight="522.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.PopUpController_Task_Details">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="427.0" minHeight="10.0" prefHeight="419.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="106.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="195.0" minHeight="20.0" prefHeight="20.0" vgrow="NEVER" />
+    </rowConstraints>
+   <children>
+      <GridPane prefHeight="425.0" prefWidth="447.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="218.0" minHeight="10.0" prefHeight="218.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Task name" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated hours" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Responsible Team Member" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="taskNameEditTextField" onMouseClicked="#enableEditConfirmationButton" prefHeight="25.0" prefWidth="238.0" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="estimatedHoursTextField" onMouseClicked="#enableEditConfirmationButton" promptText="Hours(fx: 65 )" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="responsibleTeamMemberTextField" onMouseClicked="#enableEditConfirmationButton" promptText="Employee name" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Task details" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="taskTextArea" onMouseClicked="#enableEditConfirmationButton" prefHeight="200.0" prefWidth="200.0" promptText="Task description" GridPane.columnSpan="3" GridPane.rowIndex="4">
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin>
+            </TextArea>
+         </children>
+      </GridPane>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="1">
+         <children>
+            <CheckBox fx:id="highPriorityCheckBox" contentDisplay="RIGHT" layoutX="50.0" layoutY="44.0" mnemonicParsing="false" onMouseClicked="#enableEditConfirmationButton" prefHeight="17.0" prefWidth="98.0" text="High Priority" />
+            <HBox layoutX="191.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="105.0" prefWidth="128.0" spacing="5.0">
+                     <children>
+                        <Button fx:id="confirmEditButton" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#confirmEdit" prefWidth="100.0" text="Confirm edit" />
+                        <Button fx:id="cancelButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="25.0" prefWidth="100.0" text="Cancel" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="105.0" prefWidth="128.0" spacing="5.0">
+                     <children>
+                        <Button fx:id="deleteTask" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#deleteTask" prefHeight="25.0" prefWidth="100.0" text="Delete task" />
+                        <Button fx:id="documentationButton" layoutX="29.0" layoutY="68.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#documentationPopup" prefHeight="25.0" prefWidth="100.0" text="Documentation" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+    <Label text="Colour IT © Group 7" textFill="#545454" GridPane.rowIndex="2">
+        <font>
+            <Font name="System Italic" size="12.0" />
+        </font>
+    </Label>
+   </children>
+
+</GridPane>
